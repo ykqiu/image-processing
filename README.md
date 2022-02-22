@@ -18,7 +18,7 @@ This module serves as an interface to connect other module with sdram_ctrl. It e
 - Ping-pong opration switch to make sure the single frame will be read or wirte to a fixed memory space (different bank), to avoid wrong frame.
 
 ## vga_controller
-The VGA display has the advantages of low cost, simple structure and flexible application. The vga_controller is a to control the VGA display panel with a **640*480** resolution. It consists of a VGA_CTRL module to drive the display with appropriate timing parameter, and a HDMI adpater to be compatible with high resolution HDMI display.
+The VGA display has the advantages of low cost, simple structure and flexible application. The vga_controller is to control the VGA display panel with a **640*480** resolution. It consists of a VGA_CTRL module to drive the display with appropriate timing parameter, and a HDMI adpater to be compatible with high resolution HDMI display.
 
 
 ## ISP_TOP
