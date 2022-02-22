@@ -22,7 +22,7 @@ The VGA display has the advantages of low cost, simple structure and flexible ap
 
 
 ## ISP_TOP
-This module is the core module to process the incoming data from sdram before sending the processed image to display module. It consists of several sub-modules to meet requirement for different application. Either a solo module or several piplined modules can be switched on according to the defines. The functionalities of these modules are listed follow.
+This module is the core module to process the incoming data from sdram before sending the processed image to display module. It consists of several sub-modules to meet requirement for different application. Either a solo module or several pipelined modules can be switched on according to the defines. The functionalities of these modules are listed follow.
 ### RGB2YUV
 This module is used to convert the RGB data from sensor to YUV domain, in order to extract the grey information of the image for further processing. The YUV value is calculated by using:
 >Y  =      (0.257 * R) + (0.504 * G) + (0.098 * B) + 16  
