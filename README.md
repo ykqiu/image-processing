@@ -12,17 +12,17 @@ This module is the core module to interact with sdram chip. It is used to issue 
 - Control the write and read channel, including DQ and DQM.
 - Follow the timing requirement by sdram chip and enhance transport efficiency.
 ### fifo_ctrl
-This module serves as an interface to connet other module with sdram_ctrl. It encapsulates the sdram_ctrl with an user-friendly fifo interface and a controlled threshold of data number. Besides, it issues requests and send acknoledges to sdram_ctrl to smooth data tranfer. It supports:
+This module serves as an interface to connet other module with sdram_ctrl. It encapsulates the sdram_ctrl with an user-friendly fifo interface and a controlled threshold of data number. Besides, it issues requests and sends acknoledges to sdram_ctrl to smooth data tranfer. It supports:
 - True dual-port asynchronous fifo interface to cope with data from different clock domain. such as sensor and display domain.
 - Controlled data number threshold: send write requests to sdram_ctrl when data number exceeds the threshold, and read requests to when data number is lower than the setting threshold.
-- Ping-pong opration switch to make sure the single frame will be read or wirte to a fixed memory space (different bank), to avoid wrong frame
+- Ping-pong opration switch to make sure the single frame will be read or wirte to a fixed memory space (different bank), to avoid wrong frame.
 
 ## vga_controller
 The VGA display has the advantages of low cost, simple structure and flexible application. The vga_controller is a to control the VGA display panel with a **640*480** resolution. It consists of a VGA_CTRL module to drive the display with appropriate timing parameter, and a HDMI adpater to be compatible with high resolution HDMI display.
 
 
 ## ISP_TOP
-This module is the core module to process the incoming data from sdram before sending the processed image to display module. It consists of several sub-modules to meet requirement for different application. Either a solo module or sveral piplined modules can be switched on according to the defines. The functionalities of these modules are listed follow.
+This module is the core module to process the incoming data from sdram before sending the processed image to display module. It consists of several sub-modules to meet requirement for different application. Either a solo module or several piplined modules can be switched on according to the defines. The functionalities of these modules are listed follow.
 ### RGB2YUV
 This module is used to convert the RGB data from sensor to YUV domain, in order to extract the grey information of the image for further processing. The YUV value is calculated by using:
 >Y  =      (0.257 * R) + (0.504 * G) + (0.098 * B) + 16  
@@ -45,5 +45,9 @@ To realize the algorithm in hardware, it will cost high resources if the value i
   >A = min[f(x, y)]  
   B = max[f(x, y)]  
   g(x, y) = 255*[f(x, y)-A]/(B-A)  
+  
+  The stretching of grayscale images is this project is a pseudo stretching. Instead of using a frame buffer to calculate the **A** and **B** in the current frame,  an approximation is to map from the previous frame when building histogram statistics for the current frame, that is to calculate the **A** and **B**. In fact, all the values of the formula are calculated in the previous frame to stretch the image of this frame, which greatly reduces the design difficulty.  
+- Histogram equalization
+  Histogram equalization refers to converting an input image into an output image that has approximately the same level at each gray level (ie, the output histogram is uniform) through a certain grayscale mapping. In an equalized image, the pixels will occupy as many gray levels as possible and be evenly distributed. Therefore, such images will have higher contrast and larger dynamic range, the output grey-scale is defined as
   
   
