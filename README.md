@@ -32,7 +32,7 @@ Cb = U = -(0.148 * R) - (0.291 * G) + (0.439 * B) + 128
 The incoming data is 16-bit RGB565 data from sensor, which need to extend the bit width to 8 bits, by copying the least significant bits. Then the extended RGB888 data can be converted to YUV according to above formula.  
 When implementing the conversion formula, fraction multiplication or division is avoided by using bit-shift. Also, 3-stage pipline for bit-shift and plus is used to better timing.
 ### logarithmization
-This module is used to implement to enhance imgae brightness for lower grey-scale pixels. Secifically, according to the formula:  
+This module is used to enhance imgae brightness for lower grey-scale pixels. Secifically, according to the formula:  
 >s = c log(1+r)  
 
 where c is the scale proportional constant, r is the source gray value, and s is the transformed target gray value. This transformation can enhance the details of the darker parts of an image, so that it can be used to expand the darker pixels in the compressed high-value image.  
