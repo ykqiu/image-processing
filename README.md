@@ -1,5 +1,5 @@
 # Image-Processing
-This project is a piplined image processing in Verilog aimed at FPGA or ASIC where requirements for real-time processing is needed, and where simplicity and LUT usage are more important than maximising the image processing quality.  
+This project is a pipelined image processing in Verilog aimed at FPGA or ASIC where requirements for real-time processing is needed, and where simplicity and LUT usage are more important than maximising the image processing quality.  
 This project is mainly done on Xilinx 7 series (Artix, Kintex) using vidado HLS, but it may also be compatibel with other platforms or tools in ASIC/FPGA RTL design.  
 The idea with this project is to process the incoming imgae from sensor to enhance image quality or extract key informaion, reducing the complexity and hardware requirement(in contrast to MCU). This project consists of a top module, namely ISP_TOP, which is made up by several sub-modules as follows.  
 ## sdram_controller
