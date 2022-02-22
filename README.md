@@ -46,7 +46,7 @@ To realize the algorithm in hardware, it will cost high resources if the value i
   B = max[f(x, y)]  
   g(x, y) = 255*[f(x, y)-A]/(B-A)  
   
-  The stretching of grayscale images is this project is a pseudo stretching. Instead of using a frame buffer to calculate the **A** and **B** in the current frame,  an approximation is to map from the previous frame when building histogram statistics for the current frame, that is to calculate the **A** and **B**. In fact, all the values of the formula are calculated in the previous frame to stretch the image of this frame, which greatly reduces the design difficulty.  
+  The stretching of grayscale images is this project is a pseudo stretching. Instead of using a frame buffer to calculate the **A** and **B** in the current frame,  an approximation is to map from the previous frame when building histogram statistics for the current frame, that is to calculate the **A** and **B**. In fact, all the values of the formula are calculated in the previous frame to stretch the image of current frame, which greatly reduces the design difficulty.  
 - Histogram equalization
   Histogram equalization refers to converting an input image into an output image that has approximately the same level at each gray level (ie, the output histogram is uniform) through a certain grayscale mapping. In an equalized image, the pixels will occupy as many gray levels as possible and be evenly distributed. Therefore, such images will have higher contrast and larger dynamic range, the output grey-scale is defined as
   
