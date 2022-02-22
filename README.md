@@ -6,7 +6,7 @@ The idea with this project is to process the incoming imgae from sensor to enhan
 This sub-module is used to control or drive a MICRON sdram chip, to storage image data from sensor, and read the data back to FPGA for future use. By using off-chip sdram, the on-chip memory can be largely saved for other use (ISP, etc).  
 The sdram-controller consists of a sdram_ctrl module to interacts with sdram chip, and a fifo-ctrl module to encapsulate the sdram-controller with fifo interface, which is easier to operate.  
 ### sdram_ctrl
-This module is the core module to interact with sdram chip. It is used to issue the wrtie or read commands from FPGA and tranfer these commands to sdram bus command. Also, it need to send a refresh command to sdram every **7.8 ms** in case that data loss in sdram. In addition, the sdram_ctrl is used to arbitrate the commands and check the timing to avoid timing violation. The main feature of sdram_ctrl is;  
+This module is the core module to interact with sdram chip. It is used to issue the wrtie or read commands from FPGA and tranfer these commands to sdram bus command. Also, it need to send a refresh command to sdram every **7.8 ms** in case that data loss in sdram. In addition, the sdram_ctrl is used to arbitrate the commands and check the timing to avoid timing violation. The main features of sdram_ctrl are;  
 - Arbitrate refresh, write and read command with different priority.
 - Send a controlled burst length starting with an activate command and ending with an auto-precharge command.
 - Control the write and read channel, including DQ and DQM.
