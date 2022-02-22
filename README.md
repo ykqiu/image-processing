@@ -12,7 +12,7 @@ This module is the core module to interact with sdram chip. It is used to issue 
 - Control the write and read channel, including DQ and DQM.
 - Follow the timing requirement by sdram chip and enhance transport efficiency.
 ### fifo_ctrl
-This module serves as an interface to connet other module with sdram_ctrl. It encapsulates the sdram_ctrl with an user-friendly fifo interface and a controlled threshold of data number. Besides, it issues requests and sends acknoledges to sdram_ctrl to smooth data tranfer. It supports:
+This module serves as an interface to connect other module with sdram_ctrl. It encapsulates the sdram_ctrl with an user-friendly fifo interface and a controlled threshold of data number. Besides, it issues requests and sends acknoledges to sdram_ctrl to smooth data tranfer. It supports:
 - True dual-port asynchronous fifo interface to cope with data from different clock domain. such as sensor and display domain.
 - Controlled data number threshold: send write requests to sdram_ctrl when data number exceeds the threshold, and read requests to when data number is lower than the setting threshold.
 - Ping-pong opration switch to make sure the single frame will be read or wirte to a fixed memory space (different bank), to avoid wrong frame.
