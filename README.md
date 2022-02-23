@@ -62,11 +62,19 @@ The filter algorithm achienved by following steps:
 - Sort the previous three values again, and the obtained median value is the median value of the window.  
 ### Gaussian filter  
 Gaussian filter can be used to eliminate Gaussian noise. Gaussian filtering is a linear smoothing filter by weighted averaging of the entire image. The value of each pixel is obtained by itself and other pixel values in the neighborhood after weighted averaging.  
+![image](https://github.com/ykqiu/Image-Processing/blob/main/docs/1536533-20200323200754303-1161881582.png)  
+The gaussian operator is represented as:  
+![image](https://github.com/ykqiu/Image-Processing/blob/main/docs/1536533-20200323200031355-1214164222.png)  
 ### Sobel edge detection  
 Sobel operator is a commonly used edge detection template. The algorithm is relatively simple. Technically, the Sobel operator is a discrete difference operator, which is used to calculate the approximation of the gray level of the image brightness function. Using this operator at any point in the image will yield the corresponding grayscale vector or its normal vector. Sobel edge detection is usually directional and can detect only vertical edges or vertical edges or both.
 Similarly to Gaussian filter, sobel detection is achienved by implementing a convolution for a given channel. The convolution result represents the virtical or horizontal gradient. When the filter window comes to an edge, the gradient value may become a maximum. After setting an appropriate grey-scale threshold, the image will be filterd as an binary image, which reprents the edge of an image.  
-The Sobel operator is represented
+The Sobel operator is represented as  
+![image](https://github.com/ykqiu/Image-Processing/blob/main/docs/1536533-20200324143053297-618208439.png)  
 ### Canny edge detection  
 Canny operator is a more accurate edge detection method, compared to sobel detection. Basically, the detection algorithm consists of following four steps:  
 - Perform Gaussian filter to require noise. The Gaussian filter mainly smoothes (blurs) the image, and may also increase the width of the edges.
--
+- Perform Sobel operation to calculate gradient value and direction of each pixel.
+- Filter the non-maximum pixel, which is the fake edge. To achieve this, each pixel compares its grey-scale value with the neighboring two pixels in the direction of its gradient. Then the pixel will persisit if it is still the maximum point.
+![image](https://github.com/ykqiu/Image-Processing/blob/main/docs/v2-bee3a70b859a2a0c49a8ff7f78d03cf2_720w.jpg)  
+- Double-threshold filter: it sets two thresholds, maxVal and minVal, respectively. Any pixel greater than maxVal is detected as an edge, and pixel lower than minval is detected as a non-edge. For a pixel in the middle, if it is adjacent to a pixel determined to be an edge, it is determined to be an edge; otherwise, it is a non-edge.  
+![image](https://github.com/ykqiu/Image-Processing/blob/main/docs/v2-d55a6eb3add17b3c53c6d68c210cb157_720w.jpg)  
