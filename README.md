@@ -34,7 +34,7 @@ This module is used to enhance image brightness for lower grey-scale pixels. Sec
 
 where c is the scale proportional constant, r is the source gray value, and s is the transformed target gray value. This transformation can enhance the details of the darker parts of an image, so that it can be used to expand the darker pixels in the compressed high-value image.  
 The transformation maps a narrow range of low grayscale values of input to a wider range of grayscale values of the output, and vice versa for high input grayscale values.  
-To realize the algorithm in hardware, it will cost high resources if the value is calculated by directly using logarithmization opreation. Instead, a LUT is used by calculated the ouput value of 256 grey values in advance, for a given logarithmization formula. Then the LUT is changed to format of log.mif and is loaded in to a rom, which can be read after one cycle when an input grey value is send to its address pin.  
+To realize the algorithm in hardware, it will cost high resources if the value is calculated by directly using logarithmization opreation. Instead, a LUT is used by calculating the ouput value of 256 grey values in advance, for a given logarithmization formula. Then the LUT is changed to format of log.mif and is loaded in to a rom, which can be read after one cycle when an input grey value is send to its address pin.  
 ### Histogram  
 - Histogram Stretching  
   Histogram stretching is used to adjust the contrast of the image in real time. Histogram stretching refers to stretching the narrow gray-level interval of the image gray-level histogram to both ends to enhance the gray-level contrast of the pixels of the entire image.  
