@@ -72,7 +72,7 @@ The Sobel operator is represented as
 ![image](https://github.com/ykqiu/Image-Processing/blob/main/docs/1536533-20200324143053297-618208439.png)  
 ### Canny edge detection  
 Canny operator is a more accurate edge detection method, compared to sobel detection. Basically, the detection algorithm consists of following four steps:  
-- Perform Gaussian filter to require noise. The Gaussian filter mainly smoothes (blurs) the image, and may also increase the width of the edges.
+- Perform Gaussian filter to filter noise out. The Gaussian filter mainly smoothes (blurs) the image, and may also increase the width of the edges.
 - Perform Sobel operation to calculate gradient value and direction of each pixel.
 - Filter the non-maximum pixel, which is the fake edge. To achieve this, each pixel compares its grey-scale value with the neighboring two pixels in the direction of its gradient. Then the pixel will persisit if it is still the maximum point.
 ![image](https://github.com/ykqiu/Image-Processing/blob/main/docs/v2-bee3a70b859a2a0c49a8ff7f78d03cf2_720w.jpg)  
